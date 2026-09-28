@@ -1,0 +1,932 @@
+DOCTYPE html>  <html>  <head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Automotores del Valle</title>  
+    <link rel="stylesheet" href="style.css">  
+</head>  <body>  <header>  
+    <img src="img/logo.png" alt="Automotores del Valle">  
+    <p>Compra · Venta · Financiación</p>
+</header>  <main>  
+    <h2>¿Qué estás buscando?</h2>  <button onclick="irA('catalogo')">  
+    🚗 Ver vehículos  
+</button>  
+
+<button onclick="irA('financiacion')">  
+    💳 Financiación  
+</button>  
+
+<button onclick="irA('agencia')">  
+    🏢 La agencia  
+</button>  
+
+<button onclick="irA('contacto')">  
+    📞 Contacto  
+</button>  
+
+<button onclick="irA('nexo')">  
+    ✨ ADT NEXO DETAIL  
+</button>  
+
+<button onclick="irA('sorteo')">  
+    🎟️ Sorteo DEMO  
+</button>
+<button onclick="mostrarEntregas()">
+    🚗 Entregas
+</button>
+
+<button onclick="mostrarVideos()">
+    🎬 Videos
+</button>
+
+</main>
+<section id="ofertas">  <h2>🔥 OFERTA RELÁMPAGO 🔥</h2> 
+
+<div class="oferta">
+
+<img src="img/207.jpg" alt="Peugeot 207 Compact">  
+        <h3>Peugeot 207 Compact 1.4 Nafta</h3>  <p>Año: 2014</p>  
+    <p>Única mano de fábrica</p>  
+    <p>137.000 km</p>  
+
+   <p>Antes: $14.500.000</p>
+
+<p class="descuento-oferta">14% OFF</p>  
+<p class="precio-oferta">Ahora: $12.500.000</p>  
+<p class="contado-oferta">💵 Precio especial pagando al contado efectivo</p>  <button onclick="mostrarVehiculoNuevo(0)">  
+        Ver oferta  
+    </button>  
+    <div id="detalle-0"></div>  
+
+
+</div>
+
+</section>  <section id="catalogo">  <h2>🚗 Vehículos en stock</h2>  
+
+<p>  
+    Conocé nuestras unidades disponibles.  
+</p>  
+
+
+<div class="categorias">  
+
+    <button onclick="filtrarVehiculos('Todos')">  
+        Todos  
+    </button>  
+
+    <button onclick="filtrarVehiculos('Autos')">  
+        Autos  
+    </button>  
+
+    <button onclick="filtrarVehiculos('SUV')">  
+        SUV  
+    </button>  
+
+    <button onclick="filtrarVehiculos('Pick-ups')">  
+        Pick-ups  
+    </button>  
+
+    <button onclick="filtrarVehiculos('Utilitarios')">  
+        Utilitarios  
+    </button>  
+
+</div>  
+
+
+<!--  
+    JavaScript va a generar  
+    automáticamente los vehículos acá.  
+-->  
+
+<div id="catalogoVehiculos"></div>
+
+</section>  <section id="financiacion">  <h2>💳 Financiación</h2>  
+
+<p>  
+    Encontrá la forma de financiación  
+    que mejor se adapte a tu compra.  
+</p>  
+
+
+<button onclick="mostrarSimulador()">  
+    Simulador de cuotas  
+</button>  
+
+
+<div id="contenidoFinanciacion"></div>
+
+</section>  <section id="agencia">  <h2>🏢 La agencia</h2>  
+
+<p>  
+    Somos Automotores del Valle,  
+    una agencia dedicada a la compra,  
+    venta y financiación de vehículos.  
+</p>  
+
+
+<div class="info-agencia">  
+
+    <h3>🚗 Compra y venta</h3>  
+
+    <p>  
+        Trabajamos con vehículos usados  
+        y buscamos ofrecer opciones  
+        para diferentes necesidades.  
+    </p>  
+
+
+    <h3>💳 Financiación</h3>  
+
+    <p>  
+        Contamos con distintas alternativas  
+        de financiación según cada operación  
+        y vehículo.  
+    </p>  
+
+
+    <h3>🔄 Recibimos tu usado</h3>  
+
+    <p>  
+        Podés consultar por la posibilidad  
+        de entregar tu vehículo como parte  
+        de pago.  
+    </p>  
+
+
+    <h3>🤝 Atención personalizada</h3>  
+
+    <p>  
+        Te acompañamos durante el proceso  
+        de compra para encontrar  
+        la alternativa adecuada.  
+    </p>  
+
+</div>
+
+</section>  <section id="contacto">  <h2>📞 Contactanos</h2>  
+
+<p>  
+    Estamos para ayudarte a encontrar  
+    tu próximo vehículo.  
+</p>  
+
+
+<div class="contacto-box">  
+
+    <h3>📲 WhatsApp</h3>  
+
+    <p>  
+        Consultanos directamente por WhatsApp.  
+    </p>  
+
+    <button onclick="mostrarWhatsApp()">
+    💬 WhatsApp
+</button>
+
+<div id="submenu-whatsapp" style="display: none;">
+
+    <button onclick="abrirWhatsAppAgencia()">
+        🏢 WhatsApp Agencia
+    </button>
+
+    <button onclick="abrirWhatsAppDario()">
+        👤 Darío Troncozo
+    </button>
+
+</div>
+
+
+    <h3>📱 Redes sociales</h3>  
+
+    <p>  
+        Seguinos para conocer nuevos ingresos,  
+        ofertas y novedades.  
+    </p>  
+
+
+    <button onclick="abrirInstagram()">  
+        📸 Instagram  
+    </button>  
+
+
+    <button onclick="abrirFacebook()">  
+        👍 Facebook  
+    </button>  
+
+
+    <button onclick="abrirTikTok()">  
+        🎵 TikTok  
+    </button>  
+
+
+    <h3>📍 Ubicación</h3>  
+
+    <p>  
+        Liniers 403, Tupungato, Mendoza.  
+    </p>  
+
+
+    <button onclick="abrirMapa()">  
+        🗺️ Cómo llegar  
+    </button>  
+
+</div>
+
+</section>  <section id="nexo">  <h2>✨ ADT NEXO DETAIL</h2>  
+
+<p>  
+    Detailing y cuidado profesional  
+    de vehículos.  
+</p>
+
+</section>  <section id="sorteo">  <h2>🎟️ Sorteo DEMO</h2>  
+
+<p>  
+    Próximamente podrás conocer  
+    nuestro sistema de sorteos DEMO.  
+</p>
+
+</div>
+<section id="entregas" style="display: none;">
+
+    <h2>🚗 Entregas</h2>
+
+    <p>
+        Algunos de los vehículos entregados por Automotores del Valle.
+    </p>
+
+    <div class="galeria-entregas">
+
+        <!-- ENTREGA 1 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/ranger-entrega1.jpg"
+                alt="Ford Ranger entregada"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🚙 Entrega de Ford Ranger 2009</h3>
+
+                <p>
+                    🎉 ¡Felicitaciones a sus nuevos dueños!
+                </p>
+
+                <p>
+                    Gracias por confiar en Automotores del Valle
+                    y permitirnos ser parte de este momento.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 2 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/captur-entrega2.jpg"
+                alt="Renault Captur entregada"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🚙 Entrega de Renault Captur 2018</h3>
+
+                <p>
+                    🤝 Una vez más, gracias por confiar en nosotros.
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 3 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/siena-entrega3.png"
+                alt="Fiat Siena entregado"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🚗 Entrega de Fiat Siena</h3>
+
+                <p>
+                    🎊 ¡Felicitaciones por esta nueva adquisición!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 4 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/goltrend-entrega4.png"
+                alt="Volkswagen Gol Trend entregado"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🚗 Entrega de Volkswagen Gol Trend</h3>
+
+                <p>
+                    🥳 ¡Que disfruten muchísimo de su nuevo vehículo!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 5 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/logan-entrega5.png"
+                alt="Renault Logan entregado"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🚗 Entrega de Renault Logan</h3>
+
+                <p>
+                    🎉 ¡Una nueva etapa comienza sobre ruedas!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 6 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/ranger-entrega6.png"
+                alt="Ford Ranger entregada"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🛻 Entrega de Ford Ranger</h3>
+
+                <p>
+                    💪 ¡Felicitaciones por esta tremenda elección!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 7 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/gol-entrega7.png"
+                alt="Volkswagen Gol entregado"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🚗 Entrega de Volkswagen Gol</h3>
+
+                <p>
+                    🎉 ¡Felicitaciones y a disfrutar de muchos kilómetros!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 8 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/cruze-entrega19.jpg"
+                alt="Chevrolet Cruze entregado"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🚗 Entrega de Chevrolet Cruze</h3>
+
+                <p>
+                    🥂 ¡Felicitaciones por este nuevo compañero de ruta!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 9 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/moto-entrega9.jpg"
+                alt="Moto entregada"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🏍️ Entrega de motocicleta</h3>
+
+                <p>
+                    🏁 ¡Felicitaciones y que disfruten cada recorrido!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 10 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/moto-entrega10.jpg"
+                alt="Moto entregada"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🏍️ Nueva entrega de motocicleta</h3>
+
+                <p>
+                    🎊 ¡Que comiencen muchos kilómetros de buenas experiencias!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 11 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/corsa-entrega11.png"
+                alt="Chevrolet Corsa entregado"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🚗 Entrega de Chevrolet Corsa</h3>
+
+                <p>
+                    🎉 ¡Felicitaciones a su nuevo dueño!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 12 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/v6-entrega12.jpg"
+                alt="Vehículo entregado"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🚘 Nueva entrega</h3>
+
+                <p>
+                    🙌 ¡Felicitaciones por este nuevo vehículo!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 13 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/bmw-entrega13.png"
+                alt="BMW entregado"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🚘 Entrega de BMW</h3>
+
+                <p>
+                    ✨ ¡Felicitaciones por esta hermosa elección!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 14 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/clio-entrega14.jpg"
+                alt="Renault Clio entregado"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🚗 Entrega de Renault Clio</h3>
+
+                <p>
+                    🎉 ¡Felicitaciones y a disfrutar de esta nueva etapa!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 15 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/raptor-entrega15.jpg"
+                alt="Ford Raptor entregada"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🛻 Entrega de Ford Raptor</h3>
+
+                <p>
+                    🔥 ¡Felicitaciones por semejante máquina!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 16 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/ranger0-entrega16.jpg"
+                alt="Ford Ranger entregada"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🛻 Nueva entrega de Ford Ranger</h3>
+
+                <p>
+                    🎊 ¡Que disfruten muchísimo de su nueva Ranger!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 17 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/montana-entrega17.jpg"
+                alt="Chevrolet Montana entregada"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🛻 Entrega de Chevrolet Montana</h3>
+
+                <p>
+                    🚀 ¡Felicitaciones por esta nueva compañera de trabajo y aventura!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ENTREGA 18 -->
+        <div class="tarjeta-entrega">
+
+            <img
+                src="img/toyota-entrega18.jpg"
+                alt="Toyota entregado"
+                onclick="mostrarDetalleEntrega(this)"
+            >
+
+            <div class="detalle-entrega">
+                <h3>🚙 Entrega de Toyota</h3>
+
+                <p>
+                    🎉 ¡Felicitaciones y que disfruten muchísimo de su nuevo vehículo!
+                </p>
+
+                <p>
+                    Gracias por elegirnos y confiar en Automotores del Valle.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button onclick="cerrarEntregas()">
+        ✖ Cerrar entregas
+    </button>
+
+</section>
+
+<section id="videos" style="display: none;">
+
+    <h2>🎬 Videos</h2>
+
+    <p>
+        Conocé nuestros vehículos y novedades a través de nuestros videos.
+    </p>
+
+    <div class="video-item">
+
+        <h3>🏢 Automotores del Valle</h3>
+
+        <video
+            src="img/videos/video-institucional.mp4"
+            controls
+            playsinline
+        >
+        </video>
+
+    </div>
+    <div class="video-item">
+
+    <h3>🚗 Peugeot 207 Compact 2014</h3>
+
+    <video
+        src="img/videos/video-207.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+
+<div class="video-item">
+
+    <h3>🚗 Gol Power 2009</h3>
+
+    <video
+        src="img/videos/video-golpower.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+<div class="video-item">
+
+    <h3>🚗 Toyota RAV4 2004 4x4</h3>
+
+    <video
+        src="img/videos/video-rav4.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+
+<div class="video-item">
+
+    <h3>🚗 Ford Kuga Titanium 2010 4x4</h3>
+
+    <video
+        src="img/videos/video-kuga.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+
+<div class="video-item">
+
+    <h3>🚙 Ford Ranger Limited 4x4 2023</h3>
+
+    <video
+        src="img/videos/video-rangerlim.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+
+<div class="video-item">
+
+    <h3>🚗 Renault Duster 2015</h3>
+
+    <video
+        src="img/videos/video-duster.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+
+<div class="video-item">
+
+    <h3>🚗 Fiat Palio Fire 2013</h3>
+
+    <video
+        src="img/videos/video-paliofire.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+
+<div class="video-item">
+
+    <h3>🚐 Citroën Berlingo 1.6 HDI 2012</h3>
+
+    <video
+        src="img/videos/video-berlingo.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+
+<div class="video-item">
+
+    <h3>🚙 Ford EcoSport XL Plus 2012</h3>
+
+    <video
+        src="img/videos/video-eco.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+
+<div class="video-item">
+
+    <h3>🏎️ Honda Civic Si 2009 — Deportivo</h3>
+
+    <video
+        src="img/videos/video-civicsi.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+
+<div class="video-item">
+
+    <h3>🚗 Toyota Corolla XEi 2017</h3>
+
+    <video
+        src="img/videos/video-corolla.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+
+<div class="video-item">
+
+    <h3>🚗 Fiat Palio Attractive 2013</h3>
+
+    <video
+        src="img/videos/video-palioattr.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+
+<div class="video-item">
+
+    <h3>🎬 Algunas unidades — Vista estilo drone</h3>
+
+    <video
+        src="img/videos/video-propa.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+
+<div class="video-item">
+
+    <h3>🚗 Honda Civic 2009 · Renault Duster 2015 · Renault Captur 2018</h3>
+
+    <video
+        src="img/videos/video-suv.mp4"
+        controls
+        playsinline
+    >
+    </video>
+
+</div>
+
+<button onclick="cerrarVideos()">
+    ✖ Cerrar videos
+</button>
+ </section>
+
+<!-- ==============================
+     BOTÓN FLOTANTE INICIO
+============================== -->
+
+<button
+    class="boton-inicio"
+    id="botonInicio"
+    onclick="irAlInicio()"
+>
+    ⬆️
+</button>
+<!-- ==============================  
+     BOTÓN FLOTANTE Y CUESTIONARIO WHATSAPP  
+============================== -->  <button class="boton-flotante-wsp" onclick="abrirCuestionario()">  
+    💬 Asesoramiento  
+</button>  <div id="modalWsp" class="modal-wsp" style="display: none;">  
+    <div class="modal-contenido">  
+        <span class="cerrar-modal" onclick="cerrarCuestionario()">&times;</span>  <h3>💬 Asesoramiento Rápido</h3>  
+    <p>¿Cómo preferís que te ayudemos?</p>  
+
+    <div class="opciones-wsp">  
+        <button onclick="seleccionarFlujo('presupuesto')">🔍 Buscar auto por mi presupuesto</button>  
+        <button onclick="seleccionarFlujo('general')">💬 Consulta general / Operación</button>  
+    </div>  
+
+    <!-- PASO 1: BÚSQUEDA POR PRESUPUESTO -->  
+    <div id="seccionPresupuesto" style="display: none; margin-top: 15px;">  
+        <p>¿De cuánto es tu presupuesto o monto disponible en pesos?</p>  
+        <input type="number" id="inputPresupuesto" placeholder="Ej: 10000000">  
+        <button class="btn-enviar-final" onclick="buscarAutosPorPresupuesto()">Ver vehículos disponibles</button>  
+        <div id="resultadoBusquedaPresupuesto" style="margin-top: 10px; max-height: 150px; overflow-y: auto; text-align: left;"></div>  
+    </div>  
+
+    <!-- PASO 2: MODALIDAD DE PAGO -->  
+    <div id="seccionModalidad" style="display: none; margin-top: 15px;">  
+        <p id="textoVehiculoElegido" style="font-weight: bold; color: #a83232;"></p>  
+        <p>¿Cómo pensás realizar la operación?</p>  
+        <button onclick="finalizarConModalidad('Contado efectivo')">💵 Contado efectivo</button>  
+        <button onclick="finalizarConModalidad('Tengo un vehículo usado para entregar')">🚗 Tengo un usado para entregar</button>  
+        <button onclick="finalizarConModalidad('Necesito financiar')">💳 Necesito financiar</button>  
+    </div>  
+</div>
+
+</div>  <script src="script.js"></script>  </body>  </html>
