@@ -1160,3 +1160,9 @@ function mostrarDetalleEntrega(imagen) {
 // ==============================
 
 mostrarCatalogo();
+let botonInicioHTML = document.getElementById("botonInicio");
+if (botonInicioHTML) {
+    botonInicioHTML.addEventListener("click", function() {
+        cerrarVideos();
+    });
+}
