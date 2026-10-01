@@ -43,6 +43,43 @@ fotos: [
 ]
 
 },
+    {  
+    marca: "Renault",  
+    modelo: "Kangoo II Express Emotion 1.6 SCe",  
+    año: 2023,  
+    motor: "1.6 nafta con GNC",  
+    kilometraje: "36.791 km",  
+    categoria: "Utilitarios",  
+    precio: 32000000,  
+    moneda: "ARS", 
+    entregaMinima: 16300000,
+    maximoFinanciar: 15700000,
+    financiacionDecreditos: true,
+    cuotasTradicional: {
+        12: 1909073,
+        18: 1431396,
+        24: 1184091,
+        36: 948164,
+        48: 833860
+    },
+    cuotasUVA: {
+        12: 1734735,
+        18: 1283835,
+        24: 1059340
+    },
+    transferencia: "Precio más gastos de transferencia.",  
+    imagen: "img/kangoo0.jpg",   
+    fotos: [  
+        "img/kangoo0.jpg",  
+        "img/kangoo01.jpg",  
+        "img/kangoo03.jpg",  
+        "img/kangoo04.jpg",  
+        "img/kangoo05.jpg",  
+        "img/kangoo07.jpg",
+        "img/kangoo08.jpg"
+    ]  
+},
+
 {
 marca: "Volkswagen",
 modelo: "Gol Power",
