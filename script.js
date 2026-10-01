@@ -555,9 +555,9 @@ fotos: [
     maximoFinanciar: 0,
     financiacionDecreditos: false,
     transferencia: "Consignación - Precio contado efectivo. Radicación Mendoza.",  
-    imagen: "img/ktm.jpg",   
+    imagen: "img/ktmt.jpg",   
     fotos: [  
-        "img/ktm.jpg",  
+        "img/ktmt.jpg",  
         "img/ktm2.jpg",  
         "img/ktm3.jpg",  
         "img/ktm4.jpg"
