@@ -521,6 +521,91 @@ fotos: [
         "img/kangoo9.jpg"
     ]  
 },
+  {  
+    marca: "Sumo",  
+    modelo: "Tanck 250 Parrillero Cardánico",  
+    año: 2010,  
+    motor: "250 cc",  
+    kilometraje: "Consultar",  
+    categoria: "Motos y Cuatriciclos",  
+    precio: 4900000,  
+    moneda: "ARS", 
+    entregaMinima: 0,
+    maximoFinanciar: 0,
+    financiacionDecreditos: false,
+    transferencia: "Vehículo de dueño directo - Contado efectivo.",  
+    imagen: "img/Sumo.jpg",   
+    fotos: [  
+        "img/Sumo.jpg",  
+        "img/Sumo1.jpg",  
+        "img/Sumo2.jpg",  
+        "img/Sumo3.jpg"
+    ]  
+},
+{  
+    marca: "KTM",  
+    modelo: "Adventure 390",  
+    año: 2021,  
+    motor: "390 cc",  
+    kilometraje: "1.834 km",  
+    categoria: "Motos y Cuatriciclos",  
+    precio: 8500,  
+    moneda: "USD", 
+    entregaMinima: 0,
+    maximoFinanciar: 0,
+    financiacionDecreditos: false,
+    transferencia: "Consignación - Precio contado efectivo. Radicación Mendoza.",  
+    imagen: "img/ktm.jpg",   
+    fotos: [  
+        "img/ktm.jpg",  
+        "img/ktm2.jpg",  
+        "img/ktm3.jpg",  
+        "img/ktm4.jpg"
+    ]  
+},
+{  
+    marca: "Corven",  
+    modelo: "Hunter 150",  
+    año: 2025,  
+    motor: "150 cc",  
+    kilometraje: "3.738 km",  
+    categoria: "Motos y Cuatriciclos",  
+    precio: 2500000,  
+    moneda: "ARS", 
+    entregaMinima: 0,
+    maximoFinanciar: 0,
+    financiacionDecreditos: false,
+    transferencia: "Consignación - Precio de contado. Radicación Mendoza.",  
+    imagen: "img/hunter.jpg",   
+    fotos: [  
+        "img/hunter.jpg",  
+        "img/hunter2.jpg",  
+        "img/hunter3.jpg",  
+        "img/hunter4.jpg"
+    ]  
+},
+{  
+    marca: "Gaf",  
+    modelo: "70cc Enduro Infantil",  
+    año: 2009,  
+    motor: "70 cc",  
+    kilometraje: "Consultar",  
+    categoria: "Motos y Cuatriciclos",  
+    precio: 1300000,  
+    moneda: "ARS", 
+    entregaMinima: 0,
+    maximoFinanciar: 0,
+    financiacionDecreditos: false,
+    transferencia: "Contado efectivo.",  
+    imagen: "img/gaf.jpg",   
+    fotos: [  
+        "img/gaf.jpg",  
+        "img/gaf2.jpg",  
+        "img/gaf3.jpg",  
+        "img/gaf4.jpg"
+    ]  
+},
+  
 ];
 
 // ==============================
