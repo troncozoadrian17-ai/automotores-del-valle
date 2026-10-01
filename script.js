@@ -537,9 +537,9 @@ fotos: [
     imagen: "img/sumo.jpg",   
     fotos: [  
         "img/sumo.jpg",  
-        "img/sumo1.jpg",  
         "img/sumo2.jpg",  
-        "img/sumo3.jpg"
+        "img/sumo3.jpg",  
+        "img/sumo4.jpg"
     ]  
 },
 {  
