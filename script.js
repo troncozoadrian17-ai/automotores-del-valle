@@ -735,7 +735,7 @@ function fotoSiguiente(indice) {
 
 function consultarVehiculo(indice) {
     let vehiculo = vehiculos[indice];  
-    let mensaje = "Hola, quiero comprar el " + vehiculo.marca + " " + vehiculo.modelo + " " + vehiculo.año + ".";  
+    let mensaje = "Hola, quiero comprar el vehículo " + vehiculo.marca + " " + vehiculo.modelo + " " + vehiculo.año + ".";  
     let url = "https://wa.me/542622592664?text=" + encodeURIComponent(mensaje);  
     window.open(url, "_blank");
 }
