@@ -534,12 +534,12 @@ fotos: [
     maximoFinanciar: 0,
     financiacionDecreditos: false,
     transferencia: "Vehículo de dueño directo - Contado efectivo.",  
-    imagen: "img/Sumo.jpg",   
+    imagen: "img/sumo.jpg",   
     fotos: [  
-        "img/Sumo.jpg",  
-        "img/Sumo1.jpg",  
-        "img/Sumo2.jpg",  
-        "img/Sumo3.jpg"
+        "img/sumo.jpg",  
+        "img/sumo1.jpg",  
+        "img/sumo2.jpg",  
+        "img/sumo3.jpg"
     ]  
 },
 {  
