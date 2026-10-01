@@ -575,7 +575,7 @@ function mostrarVehiculoNuevo(indice) {
             <p><strong>Precio:</strong> ${mostrarPrecio(vehiculo)}</p>
             ${(vehiculo.financiacionPropia || vehiculo.financiacionDecreditos) ? `<button onclick="simularCuotas(${indice})">💳 Simular cuotas</button>` : ""}
             <p><small>Precio sin gastos de transferencia.</small></p>
-            <button onclick="consultarVehiculo(${indice})">💬 Consultar por este vehículo</button>
+            <button onclick="consultarVehiculo(${indice})">💬 Comprar</button>
         </div>
     `;
 }
@@ -735,7 +735,7 @@ function fotoSiguiente(indice) {
 
 function consultarVehiculo(indice) {
     let vehiculo = vehiculos[indice];  
-    let mensaje = "Hola, quiero consultar por el " + vehiculo.marca + " " + vehiculo.modelo + " " + vehiculo.año + ".";  
+    let mensaje = "Hola, quiero comprar el " + vehiculo.marca + " " + vehiculo.modelo + " " + vehiculo.año + ".";  
     let url = "https://wa.me/542622592664?text=" + encodeURIComponent(mensaje);  
     window.open(url, "_blank");
 }
