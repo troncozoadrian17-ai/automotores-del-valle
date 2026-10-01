@@ -575,7 +575,7 @@ function mostrarVehiculoNuevo(indice) {
             <p><strong>Precio:</strong> ${mostrarPrecio(vehiculo)}</p>
             ${(vehiculo.financiacionPropia || vehiculo.financiacionDecreditos) ? `<button onclick="simularCuotas(${indice})">💳 Simular cuotas</button>` : ""}
             <p><small>Precio sin gastos de transferencia.</small></p>
-            <button onclick="consultarVehiculo(${indice})">💬 Comprar</button>
+            <button onclick="consultarVehiculo(${indice})">🛒 Comprar</button>
         </div>
     `;
 }
