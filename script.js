@@ -1065,6 +1065,260 @@ function mostrarWhatsApp() {
     if (!submenu) return;
     submenu.style.display = (submenu.style.display === "none") ? "block" : "none";
 }
+// ==============================
+// CONTACTO WHATSAPP CON VEHÍCULO
+// ==============================
+
+let numeroWhatsAppSeleccionado = "";
+let vehiculoContactoSeleccionado = null;
+let modalidadContactoSeleccionada = "";
+
+function iniciarContactoWhatsApp(tipoDestino) {
+
+    if (tipoDestino === "agencia") {
+        numeroWhatsAppSeleccionado = "5492622560680";
+
+    } else if (tipoDestino === "dario") {
+        numeroWhatsAppSeleccionado = "5492622592664";
+
+    } else {
+        return;
+    }
+
+    vehiculoContactoSeleccionado = null;
+    modalidadContactoSeleccionada = "";
+
+    let modal = document.getElementById("modalContactoWsp");
+
+    if (!modal) {
+        alert("No se encontró el formulario de contacto.");
+        return;
+    }
+
+    let selector = document.getElementById("vehiculoContacto");
+
+    if (!selector) {
+        alert("No se encontró el selector de vehículos.");
+        return;
+    }
+
+    selector.innerHTML =
+        '<option value="">Seleccionar vehículo...</option>';
+
+    vehiculos.forEach(function(vehiculo, indice) {
+
+        let opcion = document.createElement("option");
+
+        opcion.value = indice;
+
+        opcion.textContent =
+            vehiculo.marca +
+            " " +
+            vehiculo.modelo +
+            " " +
+            vehiculo.año +
+            " — " +
+            mostrarPrecio(vehiculo);
+
+        selector.appendChild(opcion);
+    });
+
+    let modalidad =
+        document.getElementById("modalidadContacto");
+
+    if (modalidad) {
+        modalidad.style.display = "none";
+    }
+
+    let resumen =
+        document.getElementById("resumenContacto");
+
+    if (resumen) {
+        resumen.style.display = "none";
+    }
+
+    let resumenVehiculo =
+        document.getElementById("resumenVehiculoContacto");
+
+    let resumenModalidad =
+        document.getElementById("resumenModalidadContacto");
+
+    if (resumenVehiculo) {
+        resumenVehiculo.innerHTML = "";
+    }
+
+    if (resumenModalidad) {
+        resumenModalidad.innerHTML = "";
+    }
+
+    modal.style.display = "flex";
+}
+
+function seleccionarVehiculoContacto() {
+
+    let selector =
+        document.getElementById("vehiculoContacto");
+
+    if (!selector) return;
+
+    let indice = selector.value;
+
+    if (indice === "") {
+
+        vehiculoContactoSeleccionado = null;
+
+        let modalidad =
+            document.getElementById("modalidadContacto");
+
+        let resumen =
+            document.getElementById("resumenContacto");
+
+        if (modalidad) {
+            modalidad.style.display = "none";
+        }
+
+        if (resumen) {
+            resumen.style.display = "none";
+        }
+
+        return;
+    }
+
+    vehiculoContactoSeleccionado =
+        vehiculos[indice];
+
+    let modalidad =
+        document.getElementById("modalidadContacto");
+
+    if (modalidad) {
+        modalidad.style.display = "block";
+    }
+
+    modalidadContactoSeleccionada = "";
+
+    let resumen =
+        document.getElementById("resumenContacto");
+
+    if (resumen) {
+        resumen.style.display = "none";
+    }
+}
+
+function seleccionarModalidadContacto(modalidad) {
+
+    if (!vehiculoContactoSeleccionado) {
+
+        alert("Primero seleccioná un vehículo.");
+
+        return;
+    }
+
+    modalidadContactoSeleccionada =
+        modalidad;
+
+    let resumenVehiculo =
+        document.getElementById("resumenVehiculoContacto");
+
+    let resumenModalidad =
+        document.getElementById("resumenModalidadContacto");
+
+    if (resumenVehiculo) {
+
+        resumenVehiculo.innerHTML =
+            "<strong>🚗 Vehículo:</strong> " +
+            vehiculoContactoSeleccionado.marca +
+            " " +
+            vehiculoContactoSeleccionado.modelo +
+            " " +
+            vehiculoContactoSeleccionado.año +
+            "<br>" +
+            "<strong>💰 Precio:</strong> " +
+            mostrarPrecio(
+                vehiculoContactoSeleccionado
+            );
+    }
+
+    if (resumenModalidad) {
+
+        resumenModalidad.innerHTML =
+            "<strong>💳 Modalidad de pago:</strong> " +
+            modalidadContactoSeleccionada;
+    }
+
+    let resumen =
+        document.getElementById("resumenContacto");
+
+    if (resumen) {
+        resumen.style.display = "block";
+    }
+}
+
+function continuarWhatsAppContacto() {
+
+    if (!vehiculoContactoSeleccionado) {
+
+        alert("Seleccioná un vehículo.");
+
+        return;
+    }
+
+    if (!modalidadContactoSeleccionada) {
+
+        alert("Seleccioná una modalidad de pago.");
+
+        return;
+    }
+
+    let nombreVehiculo =
+        vehiculoContactoSeleccionado.marca +
+        " " +
+        vehiculoContactoSeleccionado.modelo +
+        " " +
+        vehiculoContactoSeleccionado.año;
+
+    let mensaje =
+        "Hola, quiero consultar por el " +
+        nombreVehiculo +
+        " de Automotores del Valle.\n\n" +
+
+        "Precio publicado: " +
+        mostrarPrecio(
+            vehiculoContactoSeleccionado
+        ) +
+
+        "\n" +
+
+        "Modalidad de pago: " +
+        modalidadContactoSeleccionada +
+
+        "\n\n" +
+
+        "Me gustaría recibir asesoramiento " +
+        "sobre disponibilidad y condiciones.";
+
+    let url =
+        "https://wa.me/" +
+        numeroWhatsAppSeleccionado +
+        "?text=" +
+        encodeURIComponent(mensaje);
+
+    window.open(url, "_blank");
+
+    cerrarContactoWhatsApp();
+}
+
+function cerrarContactoWhatsApp() {
+
+    let modal =
+        document.getElementById("modalContactoWsp");
+
+    if (modal) {
+        modal.style.display = "none";
+    }
+
+    vehiculoContactoSeleccionado = null;
+    modalidadContactoSeleccionada = "";
+}
 
 function abrirWhatsApp() {
     let mensaje = "Hola, quiero hacer una consulta sobre los vehículos disponibles.";
