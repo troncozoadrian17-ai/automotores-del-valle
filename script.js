@@ -1288,3 +1288,274 @@ if (botonInicioHTML) {
         cerrarVideos();
     });
 }
+
+// Lista de historias diarias (puedes cambiar fotos y textos aquí)
+const misHistorias = [
+    {
+        titulo: "Oferta Día",
+        miniatura: "img/hunter.jpg",
+        archivo: "img/hunter.jpg",
+        texto: "🔥 ¡Impecable Corven Hunter 150 modelo 2025!",
+        audio: "audio/cancion1.mp4",
+        audioInicio: 29,
+        audioDuracion: 15,
+        duracion: 15,
+        fechaSubida: "2026-10-02T10:00:00"
+    },
+    {
+        titulo: "Llegó KTM",
+        miniatura: "img/ktm2.jpg",
+        archivo: "img/ktm2.jpg",
+        texto: "🚀 KTM Adventure 390 lista para transferir.",
+        audio: "audio/cancion1.mp4",
+        audioInicio: 47,
+        audioDuracion: 15,
+        duracion: 15,
+        fechaSubida: "2026-10-02T11:00:00"
+    }, 
+    {
+        titulo: "Utilitarios",
+    miniatura: "img/utilitarias1.jpg",
+    archivo: "img/utilitarias1.jpg",
+    texto: "🚐 ¡Llegaron más unidades utilitarias! Kangoo Emotion 2023 y Kangoo Authentique 2016.",
+    audio: "audio/cancion2.mp4",
+    audioInicio: 35,
+    audioDuracion: 15,
+    duracion: 15,
+    fechaSubida: "2026-10-02T12:50:00"
+    }
+];
+
+function cargarBurbujasHistorias() {
+    const contenedor = document.getElementById("storiesContainer");
+    if (!contenedor) return;
+    
+    contenedor.innerHTML = "";
+    const ahora = new Date().getTime(); 
+    const LIMITE_TIEMPO = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
+
+    // Filtrar historias con menos de 24 horas de antigüedad
+    const historiasValidas = misHistorias.filter(historia => {
+        const tiempoSubida = new Date(historia.fechaSubida).getTime();
+        return (ahora - tiempoSubida) < LIMITE_TIEMPO;
+    });
+
+    if (historiasValidas.length === 0) {
+        contenedor.style.display = "none";
+        return;
+    }
+
+    historiasValidas.forEach((historia, index) => {
+        contenedor.innerHTML += `
+            <div class="story-item" onclick="abrirHistoria(${index})">
+                <div class="story-avatar">
+                    <img src="${historia.miniatura}" alt="${historia.titulo}" onerror="this.src='img/logo.png'">
+                </div>
+                <span class="story-name">${historia.titulo}</span>
+            </div>
+        `;
+    });
+
+    window.historiasParaMostrar = historiasValidas;
+}
+
+let historiaActual = 0;
+let temporizadorHistoria = null;
+let intervaloContador = null;
+let tiempoRestante = 15000; 
+let tiempoInicio = 0;
+let estaPausado = false;
+let audioElement = null;
+
+// Crear un único elemento de audio global al iniciar la página para evitar bloqueos
+function inicializarAudioGlobal() {
+    if (!audioElement) {
+        audioElement = new Audio();
+    }
+}
+
+function abrirHistoria(index) {
+    historiaActual = index;
+    const listaActiva = window.historiasParaMostrar || misHistorias;
+    const h = listaActiva[index];
+
+    if (temporizadorHistoria) clearTimeout(temporizadorHistoria);
+    if (intervaloContador) clearInterval(intervaloContador);
+    inicializarAudioGlobal();
+
+    // Pausar audio anterior
+    audioElement.pause();
+
+    let modal = document.getElementById("storyModalDynamic");
+    if (!modal) {
+        modal = document.createElement("div");
+        modal.id = "storyModalDynamic";
+        modal.className = "story-modal";
+        document.body.appendChild(modal);
+    }
+
+    modal.style.display = "flex";
+    modal.innerHTML = `
+        <div class="story-box" id="storyBoxContainer">
+            <!-- Contador numérico elegante en lugar de la barra -->
+            <div id="storyCounter" style="position: absolute; top: 12px; left: 15px; background: rgba(0,0,0,0.6); color: #fff; padding: 3px 8px; border-radius: 12px; font-size: 12px; font-family: sans-serif; z-index: 10;">15s</div>
+            
+            <button class="close-story" onclick="cerrarHistoria()">&times;</button>
+            
+            <div class="story-tap-left" onclick="historiaAnterior()"></div>
+            <div class="story-tap-right" onclick="historiaSiguiente()"></div>
+
+            <img src="${h.archivo}" alt="Historia" id="storyImgContent">
+            <div class="story-caption">${h.texto}</div>
+        </div>
+    `;
+
+    const boxContainer = document.getElementById("storyBoxContainer");
+    boxContainer.addEventListener("mousedown", pausarHistoria);
+    boxContainer.addEventListener("touchstart", pausarHistoria);
+    boxContainer.addEventListener("mouseup", reanudarHistoria);
+    boxContainer.addEventListener("touchend", reanudarHistoria);
+
+    // Configurar y reproducir el audio de forma robusta
+    if (h.audio && h.audio !== "") {
+        audioElement.src = h.audio;
+        audioElement.currentTime = h.audioInicio || 0;
+        
+        audioElement.play().catch(e => {
+            console.log("Reproducción automática bloqueada por el navegador:", e);
+        });
+
+        if (h.audioDuracion) {
+            setTimeout(() => {
+                if (audioElement) {
+                    audioElement.pause();
+                }
+            }, h.audioDuracion * 1000);
+        }
+    }
+
+    // Duración de la historia en pantalla (por defecto 15s)
+    const duracionMs = (h.duracion || 15) * 1000;
+    iniciarTemporizador(duracionMs);
+}
+
+function iniciarTemporizador(duracion) {
+    tiempoRestante = duracion;
+    tiempoInicio = Date.now();
+    estaPausado = false;
+
+    if (intervaloContador) clearInterval(intervaloContador);
+
+    const contadorEl = document.getElementById("storyCounter");
+    
+    // Actualizar el contador segundo a segundo de forma exacta
+    intervaloContador = setInterval(() => {
+        if (!estaPausado) {
+            let tiempoTranscurrido = Date.now() - tiempoInicio;
+            let restanteMs = tiempoRestante - tiempoTranscurrido;
+            let segundosRestantes = Math.ceil(restanteMs / 1000);
+            
+            if (contadorEl) {
+                contadorEl.innerText = Math.max(segundosRestantes, 0) + "s";
+            }
+        }
+    }, 200);
+
+    temporizadorHistoria = setTimeout(() => {
+        if (intervaloContador) clearInterval(intervaloContador);
+        historiaSiguiente();
+    }, tiempoRestante);
+}
+
+function historiaSiguiente() {
+    if (temporizadorHistoria) clearTimeout(temporizadorHistoria);
+    if (intervaloContador) clearInterval(intervaloContador);
+    
+    const listaActiva = window.historiasParaMostrar || misHistorias;
+    let siguiente = historiaActual + 1;
+    
+    if (siguiente < listaActiva.length) {
+        abrirHistoria(siguiente);
+    } else {
+        cerrarHistoria();
+    }
+}
+
+function historiaAnterior() {
+    if (temporizadorHistoria) clearTimeout(temporizadorHistoria);
+    if (intervaloContador) clearInterval(intervaloContador);
+    
+    let anterior = historiaActual - 1;
+    
+    if (anterior >= 0) {
+        abrirHistoria(anterior);
+    } else {
+        abrirHistoria(0);
+    }
+}
+
+function pausarHistoria(e) {
+    if (e.target.classList.contains('close-story')) return;
+    
+    if (!estaPausado) {
+        estaPausado = true;
+        clearTimeout(temporizadorHistoria);
+        if (intervaloContador) clearInterval(intervaloContador);
+        
+        let tiempoTranscurrido = Date.now() - tiempoInicio;
+        tiempoRestante -= tiempoTranscurrido;
+
+        const box = document.getElementById("storyBoxContainer");
+        if (box) box.classList.add("paused");
+        
+        if (audioElement) audioElement.pause();
+    }
+}
+
+function reanudarHistoria() {
+    if (estaPausado) {
+        estaPausado = false;
+        
+        const box = document.getElementById("storyBoxContainer");
+        if (box) box.classList.remove("paused");
+
+        if (audioElement) audioElement.play().catch(e => {});
+
+        tiempoInicio = Date.now();
+
+        if (intervaloContador) clearInterval(intervaloContador);
+        const contadorEl = document.getElementById("storyCounter");
+
+        intervaloContador = setInterval(() => {
+            if (!estaPausado) {
+                let tiempoTranscurrido = Date.now() - tiempoInicio;
+                let restanteMs = tiempoRestante - tiempoTranscurrido;
+                let segundosRestantes = Math.ceil(restanteMs / 1000);
+                
+                if (contadorEl) {
+                    contadorEl.innerText = Math.max(segundosRestantes, 0) + "s";
+                }
+            }
+        }, 200);
+
+        temporizadorHistoria = setTimeout(() => {
+            if (intervaloContador) clearInterval(intervaloContador);
+            historiaSiguiente();
+        }, tiempoRestante);
+    }
+}
+
+function cerrarHistoria() {
+    if (temporizadorHistoria) clearTimeout(temporizadorHistoria);
+    if (intervaloContador) clearInterval(intervaloContador);
+    if (audioElement) {
+        audioElement.pause();
+    }
+    const modal = document.getElementById("storyModalDynamic");
+    if (modal) modal.style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    cargarBurbujasHistorias();
+    inicializarAudioGlobal();
+});
