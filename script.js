@@ -1277,7 +1277,7 @@ function continuarWhatsAppContacto() {
         vehiculoContactoSeleccionado.año;
 
     let mensaje =
-        "Hola, quiero consultar por el " +
+        "Hola, quiero consultar por este vehículo: " +
         nombreVehiculo +
         " de Automotores del Valle.\n\n" +
 
