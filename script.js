@@ -1549,14 +1549,14 @@ const misHistorias = [
              {
         titulo: "Video prueba",
         miniatura: "img/gol.jpg",
-        archivo: "img/videos/video-info1.mp4",
+        archivo: "img/video-info1.mp4",
         tipo: "video",
         texto: "🎥 ¡Mirá este video de Automotores del Valle!",
         fechaSubida: "2026-10-03T18:29:00"
     }, 
     {titulo: "Video prueba",
         miniatura: "img/gol.jpg",
-        archivo: "img/videos/video-info2.mp4",
+        archivo: "img/video-info2.mp4",
         tipo: "video",
         texto: "🎥 ¡Mirá este video de Automotores del Valle!",
         fechaSubida: "2026-10-03T18:29:00"
@@ -1565,7 +1565,7 @@ const misHistorias = [
     {
         titulo: "Video prueba",
         miniatura: "img/gol.jpg",
-        archivo: "img/videos/video-info3.mp4",
+        archivo: "img/video-info3.mp4",
         tipo: "video",
         texto: "🎥 ¡Mirá este video de Automotores del Valle!",
         fechaSubida: "2026-10-03T18:29:00"
