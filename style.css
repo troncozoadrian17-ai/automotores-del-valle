@@ -461,6 +461,7 @@ background-color: white;
 width: 90%;
 max-width: 400px;
 padding: 25px;
+box-sizing: border-box;
 border-radius: 16px;
 text-align: center;
 position: relative;
@@ -479,6 +480,11 @@ cursor: pointer;
 
 .cerrar-modal:hover {
 color: #000;
+}
+#modalContactoWsp #vehiculoContacto {
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;
 }
 
 .opciones-wsp button {
