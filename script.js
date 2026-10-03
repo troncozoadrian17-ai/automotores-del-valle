@@ -1545,38 +1545,31 @@ if (botonInicioHTML) {
 
 // Lista de historias diarias (puedes cambiar fotos y textos aquí)
 const misHistorias = [
-    {
-        titulo: "Oferta Día",
-        miniatura: "img/hunter.jpg",
-        archivo: "img/hunter.jpg",
-        texto: "🔥 ¡Impecable Corven Hunter 150 modelo 2025!",
-        audio: "img/cancion1.mp4",
-        audioInicio: 29,
-        audioDuracion: 15,
-        duracion: 15,
-        fechaSubida: "2026-10-02T10:00:00"
-    },
-    {
-        titulo: "Llegó KTM",
-        miniatura: "img/ktm2.jpg",
-        archivo: "img/ktm2.jpg",
-        texto: "🚀 KTM Adventure 390 lista para transferir.",
-        audio: "img/cancion1.mp4",
-        audioInicio: 47,
-        audioDuracion: 15,
-        duracion: 15,
-        fechaSubida: "2026-10-02T11:00:00"
+             
+             {
+        titulo: "Video prueba",
+        miniatura: "img/gol.jpg",
+        archivo: "img/videos/video-info1.mp4",
+        tipo: "video",
+        texto: "🎥 ¡Mirá este video de Automotores del Valle!",
+        fechaSubida: "2026-10-03T18:29:00"
+    }, 
+    {titulo: "Video prueba",
+        miniatura: "img/gol.jpg",
+        archivo: "img/videos/video-info2.mp4",
+        tipo: "video",
+        texto: "🎥 ¡Mirá este video de Automotores del Valle!",
+        fechaSubida: "2026-10-03T18:29:00"
+        
     }, 
     {
-        titulo: "Utilitarios",
-    miniatura: "img/utilitarias1.jpg",
-    archivo: "img/utilitarias1.jpg",
-    texto: "🚐 ¡Llegaron más unidades utilitarias! Kangoo Emotion 2023 y Kangoo Authentique 2016.",
-    audio: "img/cancion2.mp4",
-    audioInicio: 35,
-    audioDuracion: 15,
-    duracion: 15,
-    fechaSubida: "2026-10-02T12:50:00"
+        titulo: "Video prueba",
+        miniatura: "img/gol.jpg",
+        archivo: "img/videos/video-info3.mp4",
+        tipo: "video",
+        texto: "🎥 ¡Mirá este video de Automotores del Valle!",
+        fechaSubida: "2026-10-03T18:29:00"
+        
     }
 ];
 
@@ -1649,6 +1642,23 @@ function abrirHistoria(index) {
     }
 
     modal.style.display = "flex";
+    modal.style.display = "flex";
+
+const contenidoHistoria =
+    h.tipo === "video"
+        ? `<video
+                src="${h.archivo}"
+                id="storyVideoContent"
+                autoplay
+                playsinline
+                controls
+                style="width:100%; height:100%; object-fit:cover;"
+           ></video>`
+        : `<img
+                src="${h.archivo}"
+                alt="Historia"
+                id="storyImgContent"
+           >`;
     modal.innerHTML = `
         <div class="story-box" id="storyBoxContainer">
             <!-- Contador numérico elegante en lugar de la barra -->
@@ -1659,18 +1669,60 @@ function abrirHistoria(index) {
             <div class="story-tap-left" onclick="historiaAnterior()"></div>
             <div class="story-tap-right" onclick="historiaSiguiente()"></div>
 
-            <img src="${h.archivo}" alt="Historia" id="storyImgContent">
+            ${contenidoHistoria}
             <div class="story-caption">${h.texto}</div>
         </div>
     `;
 
     const boxContainer = document.getElementById("storyBoxContainer");
-    boxContainer.addEventListener("mousedown", pausarHistoria);
-    boxContainer.addEventListener("touchstart", pausarHistoria);
-    boxContainer.addEventListener("mouseup", reanudarHistoria);
-    boxContainer.addEventListener("touchend", reanudarHistoria);
+       boxContainer.addEventListener("mousedown", pausarHistoria);
+boxContainer.addEventListener("touchstart", pausarHistoria);
+boxContainer.addEventListener("mouseup", reanudarHistoria);
+boxContainer.addEventListener("touchend", reanudarHistoria);
 
-    // Configurar y reproducir el audio de forma robusta
+if (h.tipo === "video") {
+    const video = document.getElementById("storyVideoContent");
+
+    if (video) {
+                video.play().catch(e => {
+            console.log("El navegador bloqueó la reproducción automática:", e);
+        });
+
+        video.onloadedmetadata = function() {
+
+            const contadorEl =
+                document.getElementById("storyCounter");
+
+            if (contadorEl) {
+                contadorEl.innerText =
+                    Math.ceil(video.duration) + "s";
+            }
+        };
+
+        video.ontimeupdate = function() {
+
+            const contadorEl =
+                document.getElementById("storyCounter");
+
+            if (contadorEl) {
+
+                const segundosRestantes =
+                    Math.ceil(
+                        video.duration - video.currentTime
+                    );
+
+                contadorEl.innerText =
+                    Math.max(segundosRestantes, 0) + "s";
+            }
+        };
+
+        video.onended = function() {
+            historiaSiguiente();
+        };
+    }
+
+    return;
+}
     if (h.audio && h.audio !== "") {
         audioElement.src = h.audio;
         audioElement.currentTime = h.audioInicio || 0;
@@ -1802,14 +1854,27 @@ function reanudarHistoria() {
 function cerrarHistoria() {
     if (temporizadorHistoria) clearTimeout(temporizadorHistoria);
     if (intervaloContador) clearInterval(intervaloContador);
+
     if (audioElement) {
         audioElement.pause();
     }
+
+    const video = document.getElementById("storyVideoContent");
+
+    if (video) {
+        video.pause();
+        video.currentTime = 0;
+    }
+
     const modal = document.getElementById("storyModalDynamic");
-    if (modal) modal.style.display = "none";
+
+    if (modal) {
+        modal.style.display = "none";
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     cargarBurbujasHistorias();
     inicializarAudioGlobal();
 });
+    
