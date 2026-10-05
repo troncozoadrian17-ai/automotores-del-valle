@@ -1592,7 +1592,7 @@ const misHistorias = [
         audio: "img/cancion4.mp3",
         audioInicio: 62,         // Modificá acá el segundo exacto cuando quieras
         audioDuracion: 15
-    }  
+    }, 
         {
         titulo: "Utilitarias",
         miniatura: "img/utilitarias.webp",
