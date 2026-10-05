@@ -1545,32 +1545,54 @@ if (botonInicioHTML) {
 
 // Lista de historias diarias (puedes cambiar fotos y textos aquí)
 const misHistorias = [
-             
              {
-        titulo: "Video prueba",
-        miniatura: "img/gol.jpg",
-        archivo: "img/video-info1.mp4",
-        tipo: "video",
-        texto: "🎥 ¡Mirá este video de Automotores del Valle!",
-        fechaSubida: "2026-10-03T18:29:00"
-    }, 
-    {titulo: "Video prueba",
-        miniatura: "img/gol.jpg",
-        archivo: "img/video-info2.mp4",
-        tipo: "video",
-        texto: "🎥 ¡Mirá este video de Automotores del Valle!",
-        fechaSubida: "2026-10-03T18:29:00"
-        
-    }, 
+        titulo: "Pick-ups",
+        miniatura: "img/pick-ups.png",
+        archivo: "img/pick-ups.png",
+        tipo: "imagen",
+        texto: "💪 ¡Potencia y fuerza para el trabajo! Mirá nuestras Pick-ups disponibles.",
+        fechaSubida: "2026-10-05T10:19:00",
+        duracion: 15,
+        audio: "img/cancion4.mp3",
+        audioInicio: 17,          // Modificá acá el segundo exacto cuando quieras
+        audioDuracion: 15
+    },
+               {
+        titulo: "Compactos",
+        miniatura: "img/compactos.png",
+        archivo: "img/compactos.png",
+        tipo: "imagen",
+        texto: "⚡ ¡Ágiles y económicos! Ideales para la ciudad.",
+        fechaSubida: "2026-10-05T10:20:00",
+        duracion: 15,
+        audio: "img/cancion4.mp3",
+        audioInicio: 32,         // Modificá acá el segundo exacto cuando quieras
+        audioDuracion: 15
+    },
     {
-        titulo: "Video prueba",
-        miniatura: "img/gol.jpg",
-        archivo: "img/video-info3.mp4",
-        tipo: "video",
-        texto: "🎥 ¡Mirá este video de Automotores del Valle!",
-        fechaSubida: "2026-10-03T18:29:00"
-        
-    }
+        titulo: "Familiares",
+        miniatura: "img/familiar.jpg",
+        archivo: "img/familiar.jpg",
+        tipo: "imagen",
+        texto: "👨‍👩‍👧‍👦 ¡Comodidad y espacio para toda la familia en cada viaje!",
+        fechaSubida: "2026-10-05T10:21:00",
+        duracion: 15,
+        audio: "img/cancion4.mp3",
+        audioInicio: 47,         // Modificá acá el segundo exacto cuando quieras
+        audioDuracion: 15
+    },
+    {
+        titulo: "SUVs",
+        miniatura: "img/suv.png",
+        archivo: "img/suv.png",
+        tipo: "imagen",
+        texto: "🚙 ¡Estilo, aventura y confort al máximo nivel! Descubrí los SUVs.",
+        fechaSubida: "2026-10-05T10:22:00",
+        duracion: 15,
+        audio: "img/cancion4.mp3",
+        audioInicio: 62,         // Modificá acá el segundo exacto cuando quieras
+        audioDuracion: 15
+    }  
 ];
 
 function cargarBurbujasHistorias() {
