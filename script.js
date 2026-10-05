@@ -1601,7 +1601,7 @@ const misHistorias = [
         texto: "🚐 ¡La mayor potencia y capacidad de carga para tu negocio! Mirá las Utilitarias.",
         fechaSubida: "2026-10-05T12:18:00",
         duracion: 15,
-        audio: "audio/cancion4.mp3",
+        audio: "img/cancion4.mp3",
         audioInicio: 77,          // Modificá acá el segundo exacto cuando quieras
         audioDuracion: 15
     }
