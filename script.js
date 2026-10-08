@@ -1611,7 +1611,7 @@ const misHistorias = [
         archivo: "img/promopalioattr.jpg",
         tipo: "imagen",
         texto: "🔥 ¡Promoción imperdible! 30% OFF en Fiat Palio Attractive 1.4 (2013). ¡Consultanos!",
-        fechaSubida: "2026-10-07T09:30:00",
+        fechaSubida: "2026-10-07T22:30:00",
         duracion: 15,
         audio: "img/cancion4.mp3",
         audioInicio: 43,            // Ajustá este valor si querés que la canción empiece en otro segundo
