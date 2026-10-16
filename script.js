@@ -1731,21 +1731,20 @@ if (h.tipo === "video") {
     return;
 }
     if (h.audio && h.audio !== "") {
+    // Si la canción es distinta, cargamos la fuente
+    if (!audioElement.src.endsWith(h.audio)) {
         audioElement.src = h.audio;
-        audioElement.currentTime = h.audioInicio || 0;
-        
-        audioElement.play().catch(e => {
-            console.log("Reproducción automática bloqueada por el navegador:", e);
-        });
-
-        if (h.audioDuracion) {
-            setTimeout(() => {
-                if (audioElement) {
-                    audioElement.pause();
-                }
-            }, h.audioDuracion * 1000);
-        }
     }
+    
+    // Forzamos que siempre salte al segundo de inicio configurado para esta historia
+    audioElement.currentTime = h.audioInicio || 0;
+    audioElement.muted = false;
+
+    audioElement.play().catch(e => {
+        console.log("Reproducción bloqueada por el navegador:", e);
+    });
+}
+
 
     // Duración de la historia en pantalla (por defecto 15s)
     const duracionMs = (h.duracion || 15) * 1000;
