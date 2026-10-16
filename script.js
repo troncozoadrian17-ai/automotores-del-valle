@@ -1511,7 +1511,7 @@ const misHistorias = [
         archivo: "img/pick-ups.png",
         tipo: "imagen",
         texto: "💪 ¡Potencia y fuerza para el trabajo! Mirá nuestras Pick-ups disponibles.",
-        fechaSubida: "2026-10-05T10:19:00",
+        fechaSubida: "2026-10-16T18:19:00",
         duracion: 15,
         audio: "img/cancion4.mp3",
         audioInicio: 17,          // Modificá acá el segundo exacto cuando quieras
@@ -1523,7 +1523,7 @@ const misHistorias = [
         archivo: "img/compactos.png",
         tipo: "imagen",
         texto: "⚡ ¡Ágiles y económicos! Ideales para la ciudad.",
-        fechaSubida: "2026-10-05T10:20:00",
+        fechaSubida: "2026-10-16T18:20:00",
         duracion: 15,
         audio: "img/cancion4.mp3",
         audioInicio: 32,         // Modificá acá el segundo exacto cuando quieras
@@ -1535,7 +1535,7 @@ const misHistorias = [
         archivo: "img/familiar.jpg",
         tipo: "imagen",
         texto: "👨‍👩‍👧‍👦 ¡Comodidad y espacio para toda la familia en cada viaje!",
-        fechaSubida: "2026-10-05T10:21:00",
+        fechaSubida: "2026-10-16T18:21:00",
         duracion: 15,
         audio: "img/cancion4.mp3",
         audioInicio: 47,         // Modificá acá el segundo exacto cuando quieras
@@ -1547,7 +1547,7 @@ const misHistorias = [
         archivo: "img/suv.png",
         tipo: "imagen",
         texto: "🚙 ¡Estilo, aventura y confort al máximo nivel! Descubrí los SUVs.",
-        fechaSubida: "2026-10-05T10:22:00",
+        fechaSubida: "2026-10-16T18:22:00",
         duracion: 15,
         audio: "img/cancion4.mp3",
         audioInicio: 62,         // Modificá acá el segundo exacto cuando quieras
@@ -1559,7 +1559,7 @@ const misHistorias = [
         archivo: "img/utilitarias.webp",
         tipo: "imagen",
         texto: "🚐 ¡La mayor potencia y capacidad de carga para tu negocio! Mirá las Utilitarias.",
-        fechaSubida: "2026-10-05T12:18:00",
+        fechaSubida: "2026-10-16T18:18:00",
         duracion: 15,
         audio: "img/cancion4.mp3",
         audioInicio: 77,          // Modificá acá el segundo exacto cuando quieras
@@ -1571,7 +1571,7 @@ const misHistorias = [
         archivo: "img/promopalioattr.jpg",
         tipo: "imagen",
         texto: "🔥 ¡Promoción imperdible! 30% OFF en Fiat Palio Attractive 1.4 (2013). ¡Consultanos!",
-        fechaSubida: "2026-10-07T22:30:00",
+        fechaSubida: "2026-10-16T18:15:00",
         duracion: 15,
         audio: "img/cancion4.mp3",
         audioInicio: 43,            // Ajustá este valor si querés que la canción empiece en otro segundo
