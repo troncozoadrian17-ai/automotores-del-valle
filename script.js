@@ -3,46 +3,6 @@ let vehiculos = [
 // VEHÍCULOS  
 // ==============================
 
-{
-marca: "Peugeot",
-modelo: "207 Compact",
-año: 2014,
-motor: "1.4 nafta",
-kilometraje: "137.000 km",
-categoria: "Autos",
-precio: 12500000,
-moneda: "ARS",
-
-entregaMinima: 7800000,
-maximoFinanciar: 4700000,
-financiacionDecreditos: true,
-
-cuotasTradicional: {
-    12: 591500,
-    18: 452500,
-    24: 378000,
-    36: 311000
-},
-
-cuotasUVA: {
-    12: 520000,
-    18: 385000,
-    24: 317000
-},
-
-imagen: "img/207.jpg",
-fotos: [
-    "img/207.jpg",
-    "img/2072.jpg",
-    "img/2073.jpg",
-    "img/2074.jpg",
-    "img/2075.jpg",
-    "img/2076.jpg",
-    "img/2077.jpg",
-    "img/2078.jpg"
-]
-
-},
     {  
     marca: "Renault",  
     modelo: "Kangoo II Express Emotion 1.6 SCe",  
