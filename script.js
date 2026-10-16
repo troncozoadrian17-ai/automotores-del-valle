@@ -268,10 +268,10 @@ fotos: [
     motor: "1.4 nafta",  
     kilometraje: "160.000 km",  
     categoria: "Autos",  
-    precio: 13500000,  
+    precio: 12000000,  
     moneda: "ARS",
-    entregaMinima: 7600000,
-    maximoFinanciar: 5900000,
+    entregaMinima: 6200000,
+    maximoFinanciar: 5800000,
     financiacionDecreditos: true,
     cuotasTradicional: {
         12: 756068,
