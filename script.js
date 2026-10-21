@@ -2,7 +2,35 @@ let vehiculos = [
 // ==============================  
 // VEHÍCULOS  
 // ==============================
-
+{
+    marca: "BYD",
+    modelo: "ATTO 2 0km",
+    año: 0,
+    motor: "100% Eléctrico",
+    kilometraje: "0 km",
+    categoria: "SUV",
+    precio: 53900000,
+    moneda: "ARS",
+    entregaMinima: 0,
+    maximoFinanciar: 0,
+    financiacionDecreditos: false,
+    cuotasTradicional: {},
+    cuotasUVA: {},
+    transferencia: "🔥 Financiación oficial disponible (Tasa Fija / UVA / Tasa 0%). ¡Consultá por privado tu plan a medida! (USD 34.690 ref.) + patentamiento.",
+    imagen: "img/atto2.jpg",
+    fotos: [
+        "img/atto2.jpg",
+        "img/atto22.jpg",
+        "img/atto23.jpg",
+        "img/atto24.jpg",
+        "img/atto25.jpg",
+        "img/atto26.jpg",
+        "img/atto27.jpg",
+        "img/atto28.jpg",
+        "img/atto29.jpg",
+        "img/atto210.jpg"
+    ]
+},
     {  
     marca: "Renault",  
     modelo: "Kangoo II Express Emotion 1.6 SCe",  
@@ -1505,6 +1533,15 @@ if (botonInicioHTML) {
 
 // Lista de historias diarias (puedes cambiar fotos y textos aquí)
 const misHistorias = [
+     {
+        titulo: "BYD ATTO 2",
+        miniatura: "img/atto2.jpg",
+        archivo: "img/video-atto2.mp4",
+        tipo: "video",
+        texto: "⚡ ¡Llegó la innovación 0km! BYD ATTO 2 en Automotores del Valle 🚗💨",
+        fechaSubida: "2026-10-21T17:30:00",
+        duracion: 15
+    },
              {
         titulo: "Pick-ups",
         miniatura: "img/pick-ups.png",
