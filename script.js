@@ -6,7 +6,7 @@ let vehiculos = [
     marca: "BYD",
     modelo: "ATTO 2 0km",
     año: 0,
-    motor: "100% Eléctrico",
+    motor: "Híbrido Enchufable",
     kilometraje: "0 km",
     categoria: "SUV",
     precio: 53900000,
