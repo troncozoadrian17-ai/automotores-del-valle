@@ -1542,6 +1542,18 @@ const misHistorias = [
         fechaSubida: "2026-10-21T17:30:00",
         duracion: 15
     },
+     {
+            titulo: "BYD ATTO 2",
+            miniatura: "img/atto211.jpg",
+            archivo: "img/atto211.jpg",
+            tipo: "imagen",
+            texto: "⚡ ¡Conocé el nuevo BYD ATTO 2 0km! Innovación y diseño exclusivo 🚗💨",
+            fechaSubida: "2026-10-21T18:00:00",
+            duracion: 15,
+            audio: "img/cancion6.mp3",
+            audioInicio: 62,
+            audioDuracion: 15
+        },
              {
         titulo: "Pick-ups",
         miniatura: "img/pick-ups.png",
